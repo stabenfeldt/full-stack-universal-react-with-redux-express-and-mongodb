@@ -1,5 +1,5 @@
 "use strict"
-import {createStore} from 'redux';
+import {createStore} from 'redux'; //  eslint-disable-line
 
 // STEP 3
 const reducer = function(state={books:[]}, action) {
@@ -9,6 +9,7 @@ const reducer = function(state={books:[]}, action) {
       // return state = action.payload
       return { books: [...state.books, ...action.payload] }
       break;
+
     case 'DELETE_BOOK':
       // Create a copy of the current array of books
       const currentBookToDelete = [...state.books]
@@ -19,12 +20,36 @@ const reducer = function(state={books:[]}, action) {
           return book.id === action.payload.id;
         }
       )
-
-
       return { books: [ ...currentBookToDelete.slice(0, indexToDelete),
         ...currentBookToDelete.slice(indexToDelete + 1)]}
       break;
+
+    case 'UPDATE_BOOK':
+      // Create a copy of the current array of books
+      const currentBookToUpdate = [...state.books]
+
+      // Determine at wich index the book we want to update is
+      const indexToUpdate= currentBookToUpdate.findIndex(
+        function(book) {
+          return book.id === action.payload.id;
+        }
+      )
+
+      const newBookToUpdate = {
+        ...currentBookToUpdate[indexToUpdate],
+        title: action.payload.title
+      }
+
+      console.log("newBookToUpdate: ", newBookToUpdate);
+
+
+
+      return { books: [ ...currentBookToUpdate.slice(0, indexToUpdate), newBookToUpdate,
+        ...currentBookToUpdate.slice(indexToUpdate + 1)]}
+      break;
+
   }
+
   return state
 }
 
@@ -33,7 +58,6 @@ const store = createStore(reducer);
 
 store.subscribe(function(){
   console.log("current state is: ", store.getState() );
-  //console.log("price: ", store.getState()[1].price );
 })
 
 // STEP 2 – create and dispatch actions
@@ -57,7 +81,17 @@ store.dispatch( {
 
 });
 
+// DELETE
 store.dispatch( {
   type: "DELETE_BOOK",
   payload: { id: 1 }
+})
+
+// UPDATE
+store.dispatch( {
+  type: "UPDATE_BOOK",
+  payload: {
+    id: 1,
+    title: 'Upated title'
+  }
 })
