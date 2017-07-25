@@ -1,8 +1,12 @@
 "use strict"
 import {createStore} from 'redux'; //  eslint-disable-line
 
+// Combined reducers
 import reducers from '../reducers'
 
+// Actions
+import {addToCart} from '../actions/cartActions'
+import {postBooks, deleteBooks, updateBooks} from '../actions/booksActions'
 
 // STEP 1 create the store
 const store = createStore(reducers);
@@ -12,10 +16,8 @@ store.subscribe(function(){
 })
 
 // STEP 2 – create and dispatch actions
-store.dispatch( {
-  type: "POST_BOOK",
-
-  payload: [
+store.dispatch( postBooks(
+  [
     {
       id: 1,
       title: 'my book',
@@ -29,8 +31,7 @@ store.dispatch( {
       price: 233
     }
   ]
-
-});
+));
 
 // DELETE
 store.dispatch( {
@@ -46,3 +47,7 @@ store.dispatch( {
     title: 'Upated title'
   }
 })
+
+// Cart actions
+// Add to cart
+store.dispatch( addToCart( {id: 1} ))
