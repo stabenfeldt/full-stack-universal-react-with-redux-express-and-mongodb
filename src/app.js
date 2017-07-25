@@ -1,60 +1,11 @@
 "use strict"
 import {createStore} from 'redux'; //  eslint-disable-line
 
-// STEP 3
-const reducer = function(state={books:[]}, action) {
-  switch (action.type) {
-    case 'POST_BOOK':
-      // let books = state.concat(action.payload)
-      // return state = action.payload
-      return { books: [...state.books, ...action.payload] }
-      break;
+import reducers from '../reducers'
 
-    case 'DELETE_BOOK':
-      // Create a copy of the current array of books
-      const currentBookToDelete = [...state.books]
-
-      // Determine at wich index the book we want to delete is
-      const indexToDelete = currentBookToDelete.findIndex(
-        function(book) {
-          return book.id === action.payload.id;
-        }
-      )
-      return { books: [ ...currentBookToDelete.slice(0, indexToDelete),
-        ...currentBookToDelete.slice(indexToDelete + 1)]}
-      break;
-
-    case 'UPDATE_BOOK':
-      // Create a copy of the current array of books
-      const currentBookToUpdate = [...state.books]
-
-      // Determine at wich index the book we want to update is
-      const indexToUpdate= currentBookToUpdate.findIndex(
-        function(book) {
-          return book.id === action.payload.id;
-        }
-      )
-
-      const newBookToUpdate = {
-        ...currentBookToUpdate[indexToUpdate],
-        title: action.payload.title
-      }
-
-      console.log("newBookToUpdate: ", newBookToUpdate);
-
-
-
-      return { books: [ ...currentBookToUpdate.slice(0, indexToUpdate), newBookToUpdate,
-        ...currentBookToUpdate.slice(indexToUpdate + 1)]}
-      break;
-
-  }
-
-  return state
-}
 
 // STEP 1 create the store
-const store = createStore(reducer);
+const store = createStore(reducers);
 
 store.subscribe(function(){
   console.log("current state is: ", store.getState() );
