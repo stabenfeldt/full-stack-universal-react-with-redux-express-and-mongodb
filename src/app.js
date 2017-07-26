@@ -1,8 +1,9 @@
 "use strict"
 import {applyMiddleware, createStore} from 'redux'; //  eslint-disable-line
-import logger from 'redux-logger';
-import React from 'react';
-import {render} from 'react-dom';
+import   logger       from   'redux-logger';
+import   React        from   'react';
+import   {render}     from   'react-dom';
+import   {Provider}   from   'react-redux';
 
 // Combined reducers
 import reducers from '../reducers'
@@ -58,5 +59,7 @@ store.dispatch( addToCart(
 ));
 
 render(
-  <BooksList />, document.getElementById('app')
+  <Provider store={store}>
+    <BooksList />
+  </Provider>, document.getElementById('app')
 );
