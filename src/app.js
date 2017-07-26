@@ -1,5 +1,6 @@
 "use strict"
-import {createStore} from 'redux'; //  eslint-disable-line
+import {applyMiddleware, createStore} from 'redux'; //  eslint-disable-line
+import logger from 'redux-logger';
 
 // Combined reducers
 import reducers from '../reducers'
@@ -9,11 +10,8 @@ import {addToCart} from '../actions/cartActions'
 import {postBooks, deleteBooks, updateBooks} from '../actions/booksActions'
 
 // STEP 1 create the store
-const store = createStore(reducers);
-
-store.subscribe(function(){
-  console.log("current state is: ", store.getState() );
-})
+const middleware = applyMiddleware(logger)
+const store = createStore(reducers, middleware);
 
 // STEP 2 – create and dispatch actions
 store.dispatch( postBooks(
