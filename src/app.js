@@ -20,22 +20,8 @@ import BooksList from './components/pages/bookslist'
 
 
 // STEP 2 – create and dispatch actions
-store.dispatch( postBooks(
-  [
-    {
-      id: 1,
-      title: 'my book',
-      description: 'hello from me',
-      price: 99
-    },
-    {
-      id: 2,
-      title: 'my second book',
-      description: 'bon jour a moi',
-      price: 233
-    }
-  ]
-));
+// store.dispatch( postBooks(
+// ));
 
 // DELETE
 // store.dispatch( deleteBooks(
