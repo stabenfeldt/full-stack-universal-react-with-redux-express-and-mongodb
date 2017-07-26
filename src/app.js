@@ -1,6 +1,8 @@
 "use strict"
 import {applyMiddleware, createStore} from 'redux'; //  eslint-disable-line
 import logger from 'redux-logger';
+import React from 'react';
+import {render} from 'react-dom';
 
 // Combined reducers
 import reducers from '../reducers'
