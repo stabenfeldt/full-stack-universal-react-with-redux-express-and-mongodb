@@ -15,6 +15,9 @@ import {postBooks, deleteBooks, updateBooks} from '../actions/booksActions'
 const middleware = applyMiddleware(logger)
 const store = createStore(reducers, middleware);
 
+import BooksList from './components/pages/bookslist'
+
+
 // STEP 2 – create and dispatch actions
 store.dispatch( postBooks(
   [
@@ -53,3 +56,7 @@ store.dispatch( addToCart(
     id: 2
   }
 ));
+
+render(
+  <BooksList />, document.getElementById('app')
+);
