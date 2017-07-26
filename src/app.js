@@ -38,25 +38,25 @@ store.dispatch( postBooks(
 ));
 
 // DELETE
-store.dispatch( deleteBooks(
-  { id: 1 }
-));
-
-// UPDATE
-store.dispatch( updateBooks(
-  {
-    id: 2,
-    title: 'learn redux in 24h'
-  }
-));
-
-// Cart actions
-// Add to cart
-store.dispatch( addToCart(
-  {
-    id: 2
-  }
-));
+// store.dispatch( deleteBooks(
+//   { id: 1 }
+// ));
+//
+// // UPDATE
+// store.dispatch( updateBooks(
+//   {
+//     id: 2,
+//     title: 'learn redux in 24h'
+//   }
+// ));
+//
+// // Cart actions
+// // Add to cart
+// store.dispatch( addToCart(
+//   {
+//     id: 2
+//   }
+// ));
 
 render(
   <Provider store={store}>
