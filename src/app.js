@@ -34,20 +34,22 @@ store.dispatch( postBooks(
 ));
 
 // DELETE
-store.dispatch( {
-  type: "DELETE_BOOK",
-  payload: { id: 1 }
-})
+store.dispatch( deleteBooks(
+  { id: 1 }
+));
 
 // UPDATE
-store.dispatch( {
-  type: "UPDATE_BOOK",
-  payload: {
-    id: 1,
-    title: 'Upated title'
+store.dispatch( updateBooks(
+  {
+    id: 2,
+    title: 'learn redux in 24h'
   }
-})
+));
 
 // Cart actions
 // Add to cart
-store.dispatch( addToCart( {id: 1} ))
+store.dispatch( addToCart(
+  {
+    id: 2
+  }
+));
