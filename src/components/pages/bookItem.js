@@ -9,7 +9,7 @@ class BookItem extends React.Component{
           <Col xs={12}>
             <h6> {this.props.title} </h6>
             <p> {this.props.description} </p>
-            <h6> {this.props.price} </h6>
+            <h6> usd: {this.props.price} </h6>
             <Button bsStyle='primary'>But now </Button>
           </Col>
         </Row>
