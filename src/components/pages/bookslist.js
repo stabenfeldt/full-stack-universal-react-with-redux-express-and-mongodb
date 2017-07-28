@@ -7,6 +7,7 @@ import {getBooks} from '../../../actions/booksActions';
 import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 import BookItem from './bookItem'
+import BooksForm from './BooksForm'
 
 class BooksList extends React.Component{
 
@@ -25,21 +26,31 @@ class BooksList extends React.Component{
             price={booksArr.price}
           />
         </Col>
-
       )
     })
+    return(
+      <Grid>
+        <Row>
+          <Col xs={12} sm={6}>
+            <BooksForm />
+          </Col>
+          {booksList}
+        </Row>
+      </Grid>
+    )
+
 
     console.log("======================\n\n\n");
     console.log("Are we accessing the state? :", this.props.books );
     console.log("======================\n\n\n");
 
-    return(
-      <Grid>
-        <Row style={{marginTop: '15px'}}>
-          {booksList}
-      </Row>
-      </Grid>
-    )
+    // return(
+    //   <Grid>
+    //     <Row style={{marginTop: '15px'}}>
+    //       {booksList}
+    //   </Row>
+    //   </Grid>
+    // )
   }
 }
 
