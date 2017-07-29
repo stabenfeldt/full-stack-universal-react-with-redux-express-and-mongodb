@@ -60,11 +60,12 @@ class BooksForm extends React.Component{
                 ref="price" />
           </FormGroup>
 
-      <Button
-        bsStyle='primary'
-        onClick={this.handleSubmit.bind(this)}>
-        Save book
-      </Button>
+          <Button
+            bsStyle='primary'
+            onClick={this.handleSubmit.bind(this)}>
+            Save book
+          </Button>
+        </Panel>
 
         <Panel style={{marginTop:'25px'}} >
           <FormGroup controlId="formControlsSelect">
