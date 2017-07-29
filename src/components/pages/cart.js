@@ -35,7 +35,7 @@ class Cart extends React.Component{
     )
   }
 }
-}
+
 
 
 function mapStateToProps(state) {

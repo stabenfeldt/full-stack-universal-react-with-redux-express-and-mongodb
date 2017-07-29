@@ -43,14 +43,6 @@ class BooksList extends React.Component{
     console.log("======================\n\n\n");
     console.log("Are we accessing the state? :", this.props.books );
     console.log("======================\n\n\n");
-
-    // return(
-    //   <Grid>
-    //     <Row style={{marginTop: '15px'}}>
-    //       {booksList}
-    //   </Row>
-    //   </Grid>
-    // )
   }
 }
 
