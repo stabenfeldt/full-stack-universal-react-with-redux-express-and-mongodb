@@ -119,6 +119,18 @@ class Cart extends React.Component{
     return(
       <Panel header="Cart" bsStyle="primary">
       {cartItemsList}
+      <Row>
+        <Col xs={12}>
+          <h6>Total amount: </h6>
+          <Button
+            bsStyle="success"
+            size="small"
+            onClick={this.open.bind(this)}
+          >
+            PROCEED TO CHECKOUT
+          </Button>
+        </Col>
+      </Row>
       <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
