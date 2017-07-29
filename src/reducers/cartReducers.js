@@ -4,7 +4,6 @@ export function cartReducers(state={cart: []}, action) { // eslint-disable-line
   switch(action.type) {
 
     case 'ADD_TO_CART':
-      //return { cart: [...state, ...action.payload] }
       return {
         ...state,
         cart: action.payload,
@@ -14,7 +13,6 @@ export function cartReducers(state={cart: []}, action) { // eslint-disable-line
       break;
 
     case 'DELETE_CART_ITEM':
-      //return { cart: [...state, ...action.payload] }
       return {
         ...state,
         cart: action.payload,
@@ -68,5 +66,3 @@ export function totals(payloadArr) {
   }
 
 }
-
-
