@@ -45,6 +45,9 @@ class Cart extends React.Component{
 
   renderCart() {
     const cartItemsList = this.props.cart.map(function(cartArr) {
+      if (cartArr.quantity <= 0) {
+        return
+      }
       return(
         <Panel key={cartArr._id}>
           <Row>
