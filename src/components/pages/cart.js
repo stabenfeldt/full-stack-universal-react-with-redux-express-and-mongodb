@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {Panel, Col, Row, Well, Button} from 'react-bootstrap';
+import {Panel, Col, Row, Well, Button, Label, ButtonGroup} from 'react-bootstrap';
 
 
 class Cart extends React.Component{
@@ -24,8 +24,30 @@ class Cart extends React.Component{
         <Panel key={cartArr.id}>
           <Row>
             <Col xs={12} sm={4}>
-              <h6>{cartArr.title}</h6>
+              <h6>{cartArr.title}</h6><span>    </span>
             </Col>
+
+            <Col xs={12} sm={2}>
+              <h6>USD {cartArr.price}</h6>
+            </Col>
+
+            <Col xs={12} sm={2}>
+              <h6>
+                <Label bsStyle="success">
+                   qty: {cartArr.quantity}
+                </Label>
+              </h6>
+            </Col>
+
+            <Col xs={4} sm={4}>
+              <ButtonGroup style={{minWidth:'300px'}}>
+                <Button bsStyle="default" bsSize="small">-</Button>
+                <Button bsStyle="default" bsSize="small">+</Button>
+                <span>     </span>
+                <Button bsStyle="danger" bsSize="small">DELETE</Button>
+              </ButtonGroup>
+            </Col>
+
           </Row>
         </Panel>
       )
