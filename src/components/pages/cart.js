@@ -2,12 +2,31 @@
 
 import React from 'react';
 import {connect} from 'react-redux'
-import {Panel, Col, Row, Well, Button, Label, ButtonGroup} from 'react-bootstrap';
+import {Modal, Panel, Col, Row, Well, Button, Label, ButtonGroup} from 'react-bootstrap';
 import { bindActionCreators } from 'redux'
 import { deleteCartItem, updateCart } from '../../actions/cartActions'
 
 
 class Cart extends React.Component{
+
+  constructor() {
+    super();
+    this.state = {
+      showModal: false
+    }
+  }
+
+  open(){
+    this.setState({
+      showModal: true
+    })
+  }
+
+  close(){
+    this.setState({
+      showModal: false
+    })
+  }
 
   onDelete(_id) {
       const currentBookToDelete = this.props.cart;
@@ -100,6 +119,17 @@ class Cart extends React.Component{
     return(
       <Panel header="Cart" bsStyle="primary">
       {cartItemsList}
+      <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h6> test </h6>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close.bind(this)}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </Panel>
     )
   }
