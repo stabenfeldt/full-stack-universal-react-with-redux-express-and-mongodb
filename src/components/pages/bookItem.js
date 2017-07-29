@@ -2,7 +2,7 @@ import React from 'react';
 import {Row, Col, Well, Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {addToCart} from '../../../actions/cartActions'
+import {addToCart} from '../../actions/cartActions'
 
 
 

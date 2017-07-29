@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {findDOMNode} from 'react-dom'
 
-import {postBooks} from '../../../actions/booksActions';
+import {postBooks} from '../../actions/booksActions';
 
 
 class BooksForm extends React.Component{

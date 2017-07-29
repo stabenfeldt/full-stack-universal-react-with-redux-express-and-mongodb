@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getBooks} from '../../../actions/booksActions';
+import {getBooks} from '../../actions/booksActions';
 import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 import BookItem from './bookItem'
