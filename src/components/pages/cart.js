@@ -45,8 +45,10 @@ class Cart extends React.Component{
     this.props.updateCart(_id, 1)
   };
 
-  onDecrement(_id) {
-    this.props.updateCart(_id, -1)
+  onDecrement(_id, quantity) {
+    if (quantity > 1) {
+      this.props.updateCart(_id, -1)
+    }
   };
 
 
@@ -91,7 +93,11 @@ class Cart extends React.Component{
                 <Button
                   bsStyle="default"
                   bsSize="small"
-                  onClick={this.onDecrement.bind(this, cartArr._id)}>
+                  onClick={this.onDecrement.bind(
+                    this,
+                    cartArr._id,
+                    cartArr.quantity
+                  )}>
                   -
                 </Button>
                 <Button
