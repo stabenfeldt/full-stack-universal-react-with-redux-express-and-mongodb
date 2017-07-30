@@ -5,6 +5,10 @@ import   React        from   'react';
 import   {render}     from   'react-dom';
 import   {Provider}   from   'react-redux';
 
+// Components
+import Menu from './components/menu';
+import BooksList from './components/pages/bookslist'
+
 // Combined reducers
 import reducers from './reducers'
 
@@ -16,12 +20,14 @@ import {postBooks, deleteBooks, updateBooks} from './actions/booksActions'
 const middleware = applyMiddleware(logger)
 const store = createStore(reducers, middleware);
 
-import BooksList from './components/pages/bookslist'
 
 
 
 render(
   <Provider store={store}>
-    <BooksList />
+    <div>
+      <Menu />
+      <BooksList />
+    </div>
   </Provider>, document.getElementById('app')
 );
